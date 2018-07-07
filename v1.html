@@ -63,28 +63,51 @@
 	</head>
 	<body>
 	<header role="banner" id="qbootstrap-header">
+		<div class="container">
+			<!-- <div class="row"> -->
+		    <nav class="navbar navbar-default">
+	        <div class="navbar-header">
+	        	<!-- Mobile Toggle Menu Button -->
+				<a href="#" class="js-qbootstrap-nav-toggle qbootstrap-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+	          	<a class="navbar-brand" href="index.html">Muk & Tan</a> 
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
+	            <li><a href="#" data-nav-section="rsvp"><span>RSVP</span></a></li>
+	            <li><a href="#" data-nav-section="gallery"><span>Gallery</span></a></li>
+	     
+	          </ul>
+	        </div>
+		    </nav>
+		  <!-- </div> -->
+	  </div>
 	</header>
 	
+	<div class="qbootstrap-hero" data-section="home">
+		<div class="qbootstrap-overlay"></div>
+		<div class="qbootstrap-cover text-center" data-stellar-background-ratio="0.8" style="background-image: url(images/cover_bg_3.jpg);">
+			<div class="display-t">
+				<div class="display-tc">
+					<div class="container">
+						<div class="col-md-6 col-sm-6">
+								<div class="gallery animate-box">
+									<a class="gallery-img image-popup" href="images/cards/Front.jpg"><img src="images/cards/Front.jpg"  width="75%" /></a>
+								</div>
+						</div>
 
-	<section id="home" style="width: 100%;   margin-right: auto;
-								  margin-left: auto;
-								  padding-left: 0px;
-								  padding-right: 0px;
-								  height: 100%" >
-						
-						<img src="images/cards/Front.jpg"  width="100%" />
-						<h6> </h6>
-						<img src="images/cards/Back.jpg"  width="100%" />
-						<h6> </h6>
-		
-		
-	
-	</section>
-
-
-					<div clas="containerh">
-
+						<div class="col-md-6 col-sm-6">
+								<div class="gallery animate-box">
+									<a class="gallery-img image-popup" href="images/cards/Back.jpg"><img src="images/cards/Back.jpg"  width="75%" /></a>
+								</div>
+								
+						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<div id="qbootstrap-started" class="qbootstrap-bg" data-section="rsvp" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
 		<div class="overlay"></div>
@@ -93,8 +116,7 @@
 				<div class="col-md-8 col-md-offset-2">
 					<div class="col-md-12 text-center section-heading svg-sm colored">
 						
-						<h2>You Are Invited!</h2>
-						<h4 style="color: #ffffff; ">📌 20 October 2018 </h4> <h4 style="color: #ffffff; ">📌 Avani Riverside Hotel</h4>
+						<h2>You Are Invited</h2>
 						<div class="row">
 					
 					</div>

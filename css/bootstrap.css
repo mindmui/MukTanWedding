@@ -1573,11 +1573,11 @@ h5, .h5 {
 }
 
 h6, .h6 {
-  font-size: 12px;
+  font-size: 0.1px;
 }
 
 p {
-  margin: 0 0 10px;
+  margin: 0 0 0px;
 }
 
 .lead {
@@ -2571,7 +2571,7 @@ pre code {
   }
 
   .col-md-offset-1 {
-    margin-left: 8.33333%;
+    margin-left: 5.7%;
   }
 
   .col-md-offset-2 {

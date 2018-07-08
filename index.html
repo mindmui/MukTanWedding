@@ -110,14 +110,13 @@
 						  const scriptURL = 'https://script.google.com/macros/s/AKfycbyZTCmNGm8CdPnSRHQEO7u_-B7lNlsRBr7TStF6VHbvHBSKpDbV/exec'
 						  const form = document.forms['submit-to-google-sheet']
 						   const loading = document.querySelector('.js-loading')
-						   const successMessage = document.querySelector('.js-success-message')
-						   const errorMessage = document.querySelector('.js-error-message')
 
 						  form.addEventListener('submit', e => {
 						    e.preventDefault()
+						    $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', true).css('filter', 'contrast(0.4)')
 						    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-						      .then(response => console.log('Success!', response))
-						      .catch(error => console.error('Error!', error.message))
+						      .then(response => showSuccessMessage(response))
+						      .catch(error => showErrorMessage(error.message))
 						  })
 
 											/* functions*/	  
@@ -129,21 +128,49 @@
 						    function showSuccessMessage (response) {
 						      console.log('Success!', response)
 						      setTimeout(() => {
-						        successMessage.classList.remove('is-hidden')
-						        loading.classList.add('is-hidden')
-						      }, 500)
+						        document.querySelector('.js-success-message').classList.remove('is-hidden')
+						        //loading.classList.add('is-hidden')
+						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', true).css('filter', 'contrast(0.4)')
+						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > input').css('background', 'lightgreen')
+						      }, 0)
 						    }
 
 						    function showErrorMessage (error) {
 						      console.error('Error!', error.message)
 						      setTimeout(() => {
-						        errorMessage.classList.remove('is-hidden')
-						        loading.classList.add('is-hidden')
-						      }, 500)
+						        document.querySelector('.js-error-message').classList.remove('is-hidden')
+						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', false).css('filter', '')
+						        //loading.classList.add('is-hidden')
+						      }, 0)
 						    }	
 
+						    function resetFormStatus () {
+						    	if($('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled')){
+							    	$('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', false).css('filter', '')
+							        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > input').css('background', '').val('')
+							        document.querySelector('.js-success-message').classList.add('is-hidden')
+							        document.querySelector('.js-error-message').classList.add('is-hidden')
+						    	}
+						    }
 						</script>
 			
+			  <div class="form-container">
+    <form name="submit-to-google-sheet">
+      	<input id="nameInput" name="name" type="text" onfocus="resetFormStatus()" placeholder="First Name">
+        <input name="email" type="email" onfocus="resetFormStatus()" placeholder="Email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <div class="loading js-loading is-hidden">
+      <div class="loading-spinner">
+        <svg><circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg>
+      </div>
+    </div>
+
+    <p class="js-success-message is-hidden" style="color: lightgreen;" onclick="$('#nameInput').focus()">Success! <a>Click to subscribe more guest...</a></p>
+    <p class="js-error-message is-hidden" style="color: red;">Error!</p>
+  </div>
+					<!--
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="name" class="sr-only">Name</label>

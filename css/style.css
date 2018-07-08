@@ -28,25 +28,25 @@
   align-items: center;
 }
 
-    .loading-spinner {
-      width: 50px;
-      height: 50px;
-    }
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+}
 
-    .loading-spinner svg {
-      position: relative;
-      animation: rotate 2s linear infinite;
-      height: 50px;
-      width: 50px;
-    }
+.loading-spinner svg {
+  position: relative;
+  animation: rotate 2s linear infinite;
+  height: 50px;
+  width: 50px;
+}
 
-    .loading-spinner circle {
-      stroke: var(--accent);
-      stroke-dasharray: 1,200;
-      stroke-dashoffset: 0;
-      stroke-linecap: round;
-      animation: dash 1.5s ease-in-out infinite;
-    }
+.loading-spinner circle {
+  stroke: var(--accent);
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
 
 
 

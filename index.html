@@ -113,7 +113,7 @@
 
 						  form.addEventListener('submit', e => {
 						    e.preventDefault()
-						    $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', true).css('filter', 'contrast(0.4)')
+						    $('#qbootstrap-started > div.container > div:nth-child(2) > div > form button').prop('disabled', true).css('filter', 'contrast(0.4)')
 						    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
 						      .then(response => showSuccessMessage(response))
 						      .catch(error => showErrorMessage(error.message))
@@ -130,8 +130,8 @@
 						      setTimeout(() => {
 						        document.querySelector('.js-success-message').classList.remove('is-hidden')
 						        //loading.classList.add('is-hidden')
-						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', true).css('filter', 'contrast(0.4)')
-						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > input').css('background', 'lightgreen')
+						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form button').prop('disabled', true).css('filter', 'contrast(0.4)')
+						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form input').css('background', '#2f5d2f')
 						      }, 0)
 						    }
 
@@ -139,15 +139,15 @@
 						      console.error('Error!', error.message)
 						      setTimeout(() => {
 						        document.querySelector('.js-error-message').classList.remove('is-hidden')
-						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', false).css('filter', '')
+						        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form button').prop('disabled', false).css('filter', '')
 						        //loading.classList.add('is-hidden')
 						      }, 0)
 						    }	
 
 						    function resetFormStatus () {
-						    	if($('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled')){
-							    	$('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > button').prop('disabled', false).css('filter', '')
-							        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form > div > input').css('background', '').val('')
+						    	if($('#qbootstrap-started > div.container > div:nth-child(2) > div > form button').prop('disabled')){
+							    	$('#qbootstrap-started > div.container > div:nth-child(2) > div > form button').prop('disabled', false).css('filter', '')
+							        $('#qbootstrap-started > div.container > div:nth-child(2) > div > form input').css('background', '').val('')
 							        document.querySelector('.js-success-message').classList.add('is-hidden')
 							        document.querySelector('.js-error-message').classList.add('is-hidden')
 						    	}
@@ -156,32 +156,23 @@
 			
 			  <div class="form-container">
     <form name="submit-to-google-sheet">
-      	<input id="nameInput" name="name" type="text" onfocus="resetFormStatus()" placeholder="First Name">
-        <input name="email" type="email" onfocus="resetFormStatus()" placeholder="Email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-
     <div class="loading js-loading is-hidden">
       <div class="loading-spinner">
         <svg><circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg>
       </div>
     </div>
 
-    <p class="js-success-message is-hidden" style="color: lightgreen;" onclick="$('#nameInput').focus()">Success! <a>Click to subscribe more guest...</a></p>
-    <p class="js-error-message is-hidden" style="color: red;">Error!</p>
-  </div>
-					<!--
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="name" class="sr-only">Name</label>
-								<input name="name" type="name" class="form-control" id="name" placeholder="Name" required>
+								<input name="name" type="name" class="form-control" id="name" onfocus="resetFormStatus()" placeholder="Name" required>
 							</div>
 						</div>
 					
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="email" class="sr-only">Email</label>
-								<input name="email" type="email" class="form-control" id="email" placeholder="Email" required>
+								<input name="email" type="email" class="form-control" id="email" onfocus="resetFormStatus()" placeholder="Email" required>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
@@ -196,7 +187,7 @@
 					        <svg><circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg>
 					      </div>
 					    </div>
-					        <p class="js-success-message is-hidden" style="color: #ffffff">Success!</p>
+				    		<p class="js-success-message is-hidden" style="color: lightgreen;" onclick="$('#name').focus()">Success! <a>Click to subscribe more guest...</a></p>
    							 <p class="js-error-message is-hidden" style="color: #ffffff">Error!</p>
 
 				</div>

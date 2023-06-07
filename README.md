@@ -1,5 +1,3 @@
 # MukTanWedding
-Muk Tan Wedding
-
-Visit muktanwedding.com
+Built with tons of love for P Tan and P Muk Wedding
 
